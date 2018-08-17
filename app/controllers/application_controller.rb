@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
    foursquare_url = "https://foursquare.com/oauth2/authenticate?client_id=#{client_id}&response_type=code&redirect_uri=#{redirect_uri}"
    if !logged_in?
      redirect_to 'https://github.com'
-   else 
+   else
    redirect_to foursquare_url unless logged_in?
- end
+   end
   end
 
   def logged_in?
