@@ -10,8 +10,11 @@
 </div>
 
 
-<%= @user_data %>
+<div class = "container">
+  <h1>Repos</h1>
+  <!-- List repositories here! -->
+  <% @repo_data.each do |r| %>
+  <%= link_to r["name"], "https://www.github.com/#{@user_data["login"]}/#{r["name"]}" %>
+  <% end %>
 
-<% @repo_data.each do |friend| %>
-<%= friend %>
-    <% end %>
+  <%= @user_data["login"] %>
