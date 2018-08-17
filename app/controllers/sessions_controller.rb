@@ -3,10 +3,8 @@ class SessionsController < ApplicationController
 
   def create
     resp = Faraday.get("https://github.com/login/oauth/access_token") do |req|
-   req.params['client_id'] = 9b3367fa1fe4dd9f4382
-   req.params['client_secret'] = a2b1ef0558d7bc5b7d6e77d662f72262ecbf3e9f
-   req.params['redirect_uri'] = "http://localhost:3000/auth"
-   req.params['code'] = params[:code]
+      req.body = { 'client_id': client_id, 'client_secret': client_secret, 'code': code }
+     req.headers['Accept'] = 'application/json'
  end
 
  body = JSON.parse(resp.body)
