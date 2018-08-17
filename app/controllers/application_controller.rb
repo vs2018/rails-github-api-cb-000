@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
    if !logged_in?
      redirect_to 'https://github.com'
    else
-   redirect_to github_url unless logged_in?
+   redirect_to github_url
    end
   end
 
